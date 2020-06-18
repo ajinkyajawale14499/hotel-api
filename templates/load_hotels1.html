@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+       <!-- CSS only -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <!-- JS, Popper.js, and jQuery -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <title>Hotels List</title>
+   </head>
+   <body>
+      <!-- Page Content -->
+      <div class="container">
+         <!-- Page Heading -->
+         <h1 class="my-4">Hotel list
+            <small>Top 5 Hotels</small>
+         </h1>
+         <!-- all data -->
+         {% for data in datas %}
+         <div class="card text-center">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+               <p class="card-text">
+                  <input type="text"  name="id" hidden readonly value="{{data.id}}"><br>
+                  <img src="{{data.images[0]}}"  height="500px">
+               <h5 class="card-title">
+                  <p>Name: {{data.name}}</p>
+                  <br>
+               </h5>
+               <p>country: {{data.country}}</p>
+               <br>
+               <p>city: {{data.city}}</p>
+               <br>
+               <p>price: {{data.price}}</p>
+               <br>
+               <p>stars: {{data.stars}}</p>
+               <br>
+               <p>rating: {{"%0.2f"%data.rating}}</p>
+               <br>
+               <p>description: {{data.description}}</p>
+               <br>
+               </p>
+            </div>
+            <div class="card-footer text-muted">
+               <a class="btn btn-primary" href="/reviews/{{data.id}}" method="GET">read reviews</a>
+            </div>
+            <br>
+         </div>
+         {%endfor%}
+      </div>
+      <!-- /.container -->
+      <footer class="text-muted">
+         <div class="container">
+            <p class="float-right">
+               <a href="#">Back to top</a>
+            </p>
+            <p>Made by Ajinkya :)</p>
+         </div>
+      </footer>
+   </body>
+</html>
